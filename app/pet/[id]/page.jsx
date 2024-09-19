@@ -1,6 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
+import Carousel from "@/app/Carousel/Carousel";
 
 async function getPetDetails({ queryKey }) {
   const id = queryKey[1];
@@ -37,11 +38,12 @@ export default function PetDetails({ params }) {
   return (
     <div className="p-4">
       <h1 className="mb-4 text-3xl font-bold">{pet.name}</h1>
-      <img
-        src={pet.images[0]}
-        alt={pet.name}
-        className="mb-4 w-full max-w-md rounded-lg"
-      />
+      <Carousel images={pet.images} />
+      {/* <img */}
+      {/*   src={pet.images[0]} */}
+      {/*   alt={pet.name} */}
+      {/*   className="mb-4 w-full max-w-md rounded-lg" */}
+      {/* /> */}
       <p className="mb-2">
         <strong>Animal:</strong> {pet.animal}
       </p>
