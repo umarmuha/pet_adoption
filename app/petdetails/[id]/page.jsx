@@ -2,6 +2,8 @@
 
 import { useQuery } from "@tanstack/react-query";
 import Carousel from "@/app/Carousel/Carousel";
+import Modal from "@/app/Modal/Modal";
+import { useState } from "react";
 
 async function getPetDetails({ queryKey }) {
   const id = queryKey[1];
@@ -13,6 +15,7 @@ async function getPetDetails({ queryKey }) {
 }
 
 export default function PetDetails({ params }) {
+  const [showModal, setShowModal] = useState(false);
   const { id } = params;
   console.log(id);
 
@@ -41,6 +44,16 @@ export default function PetDetails({ params }) {
         <strong>Location:</strong> {pet.city}, {pet.state}
       </p>
       <p className="mb-4">{pet.description}</p>
+      <button onClick={() => setShowModal(true)}>Adopt</button>
+      {showModal ? (
+        <Modal>
+          <div>
+            Would you like to adopt {pet.name}
+            <button>Yes</button>
+            <button onClick={() => setShowModal(false)}>No</button>
+          </div>
+        </Modal>
+      ) : null}
     </div>
   );
 }

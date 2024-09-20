@@ -12,8 +12,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <div id="modal"></div>
       <body className={inter.className}>
+        <div id="modal"></div>
         <Providers>{children}</Providers>
       </body>
     </html>

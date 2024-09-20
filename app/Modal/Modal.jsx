@@ -16,5 +16,5 @@ export default function Modal({ children }) {
     return () => modalRoot.removeChild(elRef.current);
   }, []);
 
-  return createPortal(<div>{children}</div>);
+  return createPortal(<div>{children}</div>, elRef.current);
 }
