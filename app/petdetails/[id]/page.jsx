@@ -11,14 +11,6 @@ async function getPetDetails({ queryKey }) {
   }
   return res.json();
 }
-// async function getPetDetails({ queryKey }) {
-//   const id = queryKey[1];
-//   const res = await fetch(`http://pets-v2.dev-apis.com/pets?id=${id}`);
-//   if (!res.ok) {
-//     throw new Error("Failed to fetch pet details");
-//   }
-//   return res.json();
-// }
 
 export default function PetDetails({ params }) {
   const { id } = params;
@@ -39,11 +31,6 @@ export default function PetDetails({ params }) {
     <div className="p-4">
       <h1 className="mb-4 text-3xl font-bold">{pet.name}</h1>
       <Carousel images={pet.images} />
-      {/* <img */}
-      {/*   src={pet.images[0]} */}
-      {/*   alt={pet.name} */}
-      {/*   className="mb-4 w-full max-w-md rounded-lg" */}
-      {/* /> */}
       <p className="mb-2">
         <strong>Animal:</strong> {pet.animal}
       </p>

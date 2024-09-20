@@ -12,6 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <div id="modal"></div>
       <body className={inter.className}>
         <Providers>{children}</Providers>
       </body>
